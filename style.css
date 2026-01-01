@@ -1,74 +1,128 @@
-/* Mengatur tampilan dasar seluruh halaman */
+/* --- Dasar Halaman --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.8;
     margin: 0;
     padding: 0;
-    /* Warna latar belakang asap putih */
-    background-color: #f5f5f5; 
+    background-color: #f5f5f5; /* Warna Asap Putih */
     color: #333;
 }
 
-/* Bagian Kepala Screen (Header) */
+/* --- Header & Judul --- */
 header {
     background-color: #ffffff;
     padding: 40px 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #2c3e50;
     font-weight: 700;
-    letter-spacing: 1px;
 }
 
-/* Garis pembatas di bawah judul kepala screen */
 .header-line {
-    width: 50%;
+    width: 60%;
     height: 4px;
-    background-color: #c0392b; /* Warna merah gelap yang elegan */
+    background-color: #c0392b; /* Merah Batak */
     border: none;
-    margin: 15px auto 0;
+    margin: 15px auto;
     border-radius: 2px;
 }
 
-/* Mengatur area konten utama */
+/* --- Tombol Navigasi --- */
+.button-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #c0392b;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #c0392b;
+    border: 2px solid #c0392b;
+}
+
+/* --- Konten Utama --- */
 main {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff; /* Konten di atas box putih agar kontras */
-    border-radius: 8px;
+    padding: 10px;
+}
+
+.silsilah-lengkap, .konten-utama {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.konten-utama h2 {
-    color: #c0392b;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-.konten-utama h3 {
+h2 {
     color: #2c3e50;
-    margin-top: 25px;
-}
-
-/* Kotak sorotan untuk fokus silsilah */
-.highlight-box {
-    background-color: #fdf2f2;
-    padding: 20px;
     border-left: 5px solid #c0392b;
-    margin: 20px 0;
-    border-radius: 0 5px 5px 0;
+    padding-left: 15px;
+    margin-bottom: 20px;
 }
 
-/* Bagian kaki (Footer) */
-footer {
+/* --- Rumus Diagram Silsilah (Tree) --- */
+.tree {
+    width: 100%;
+    overflow-x: auto; /* Biar bisa di-scroll samping */
+    padding: 40px 0;
     text-align: center;
-    padding: 30px;
-    font-size: 0.9rem;
-    color: #7f8c8d;
 }
+
+.tree ul {
+    padding-top: 20px; 
+    position: relative;
+    display: inline-flex;
+}
+
+.tree li {
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+}
+
+/* Garis-garis Diagram */
+.tree li::before, .tree li::after {
+    content: '';
+    position: absolute; top: 0; right: 50%;
+    border-top: 2px solid #ccc;
+    width: 50%; height: 20px;
+}
+.tree li::after {
+    right: auto; left: 50%;
+    border-left: 2px solid #ccc;
+}
+.tree li:only-child::after, .tree li:only-child::before { display: none; }
+.tree li:only-child { padding-top: 0; }
+.tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+.tree li:last-child::before { border-right: 2px solid #ccc; border-radius: 0 5px 0 0; }
+.tree li:first-child::after { border-radius: 5px 0 0 0; }
+.tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 2px solid #ccc; width: 0; height: 20px; }
+
+/* Kotak Nama di Diagram */
+.tree li a {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #33
